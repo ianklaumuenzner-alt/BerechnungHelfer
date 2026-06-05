@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Rechner mit Tabs</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+
+  <h1>Technische Rechner</h1>
+
+  <button class="tab-button" onclick="zeigeTab('widerstand')">Widerstand</button>
+  <button class="tab-button" onclick="zeigeTab('volumen')">Volumen</button>
+
+  <!-- Tab 1: Widerstand -->
+  <div id="widerstand" class="tab active">
+    <h2>Ohmsches Gesetz</h2>
+
+    <label>Spannung U in V:</label><br>
+    <input id="U" type="number" value="24" oninput="berechneWiderstand()">
+
+    <br><br>
+
+    <label>Widerstand R in Ω:</label><br>
+    <input id="R" type="number" value="10" oninput="berechneWiderstand()">
+
+    <div id="resultatWiderstand" class="resultat"></div>
+  </div>
+
+  <!-- Tab 2: Volumen -->
+  <div id="volumen" class="tab">
+    <h2>Volumen Zylinder</h2>
+
+    <label>Durchmesser d in mm:</label><br>
+    <input id="d" type="number" value="100" oninput="berechneVolumen()">
+
+    <br><br>
+
+    <label>Höhe h in mm:</label><br>
+    <input id="h" type="number" value="200" oninput="berechneVolumen()">
+
+    <div id="resultatVolumen" class="resultat"></div>
+  </div>
+    <script src ="script.js"></script> 
+</body>
+</html>

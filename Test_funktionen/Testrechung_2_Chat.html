@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Technische Rechner</title>
+
+  <style>
+    body {
+  font-family: Arial, Verdana, sans-serif;
+  background-color: #f7f3e8;
+  color: #1f1f1f;
+  margin: 30px;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+h1, h2 {
+  letter-spacing: 0.03em;
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  padding: 14px 24px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #e8e2d0;
+}
+
+.tab-button:hover {
+  background-color: #d8cfb8;
+}
+
+.tab {
+  display: none;
+  margin-top: 25px;
+  padding: 25px;
+  border: 2px solid #333;
+  border-radius: 12px;
+  background-color: #fffaf0;
+  max-width: 700px;
+}
+
+.tab.active {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  font-weight: bold;
+}
+
+input {
+  padding: 12px;
+  width: 220px;
+  font-size: 18px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+button {
+  font-size: 18px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #333;
+}
+
+.resultat {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #eaf4ea;
+  border-left: 6px solid #2f6f3e;
+  font-size: 20px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.warnung {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffe8e8;
+  border-left: 6px solid #b00020;
+  font-size: 20px;
+}
+  </style>
+</head>
+
+<body>
+  <h1>Technische Rechner</h1>
+
+  <button class="tab-button" onclick="zeigeTab('widerstand')">Widerstand</button>
+  <button class="tab-button" onclick="zeigeTab('volumen')">Volumen</button>
+
+  <!-- Tab 1 -->
+  <div id="widerstand" class="tab active">
+    <h2>Ohmsches Gesetz</h2>
+
+    <label>Spannung U in V:</label>
+    <input id="U" type="number" value="24">
+
+    <label>Widerstand R in Ω:</label>
+    <input id="R" type="number" value="10">
+
+    <br><br>
+    <button onclick="berechneWiderstand()">Berechnen</button>
+
+    <p id="resultatWiderstand"></p>
+  </div>
+
+  <!-- Tab 2 -->
+  <div id="volumen" class="tab">
+    <h2>Volumen Zylinder</h2>
+
+    <label>Durchmesser d in mm:</label>
+    <input id="d" type="number" value="100">
+
+    <label>Höhe h in mm:</label>
+    <input id="h" type="number" value="200">
+
+    <br><br>
+    <button onclick="berechneVolumen()">Berechnen</button>
+
+    <p id="resultatVolumen"></p>
+  </div>
+
+  <script>
+    function zeigeTab(tabName) {
+      let tabs = document.querySelectorAll(".tab");
+
+      tabs.forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+      document.getElementById(tabName).classList.add("active");
+    }
+
+    function berechneWiderstand() {
+      let U = Number(document.getElementById("U").value);
+      let R = Number(document.getElementById("R").value);
+
+      if (R === 0) {
+        document.getElementById("resultatWiderstand").innerText = "R darf nicht 0 Ω sein.";
+        return;
+      }
+
+      let I = U / R;
+      let P = U * I;
+
+      document.getElementById("resultatWiderstand").innerText =
+        "Strom I = " + I.toFixed(2) + " A\n" +
+        "Leistung P = " + P.toFixed(2) + " W";
+    }
+
+    function berechneVolumen() {
+      let d = Number(document.getElementById("d").value);
+      let h = Number(document.getElementById("h").value);
+
+      let r = d / 2;
+      let volumen_mm3 = Math.PI * r * r * h;
+      let volumen_liter = volumen_mm3 / 1000000;
+
+      document.getElementById("resultatVolumen").innerText =
+        "Volumen = " + volumen_mm3.toFixed(2) + " mm³\n" +
+        "Volumen = " + volumen_liter.toFixed(3) + " Liter";
+    }
+  </script>
+</body>
+</html>

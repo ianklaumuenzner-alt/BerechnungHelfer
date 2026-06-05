@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Ohmsches Gesetz Rechner</title>
+</head>
+<body>
+  <h1>Ohmsches Gesetz</h1>
+
+  <label>Spannung U in V:</label>
+  <input id="spannung" type="number" value="24">
+
+  <br><br>
+
+  <label>Widerstand R in Ω:</label>
+  <input id="widerstand" type="number" value="10">
+
+  <br><br>
+
+  <button onclick="berechnen()">Berechnen</button>
+
+  <h2>Resultat</h2>
+  <p id="resultat"></p>
+
+  <script>
+    function berechnen() {
+      let U = Number(document.getElementById("spannung").value);
+      let R = Number(document.getElementById("widerstand").value);
+
+      if (R === 0) {
+        document.getElementById("resultat").innerText = "R darf nicht 0 Ω sein.";
+        return;
+      }
+
+      let I = U / R;
+      let P = U * I;
+
+      document.getElementById("resultat").innerText =
+        "Strom I = " + I.toFixed(2) + " A\n" +
+        "Leistung P = " + P.toFixed(2) + " W";
+    }
+  </script>
+</body>
+</html>

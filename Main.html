@@ -2,16 +2,37 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>BK Rechnenr</title>
+    <title>BK Rechner</title>
     <link rel="stylesheet" href="Styles.css">
 </head>
 
 <body>
+    <!--Interface anteil vom datei wo alle funtionen und berechnungen stat finden-->
+    <div id="Interface"></div>
+    <!--Nvigation wo sich die Navigation zwischen den einzellnen funktionen uns berechnungen stat findet-->
+    <div id="navigation"></div>
+<h2>iavysdfiafvbiuasvfuiosav</h2>
+<script>
+fetch("Home.html")
+  .then(response => {
+    console.log("Gesuchter Pfad:", "Interface/Home.html");
+    console.log("Status:", response.status);
+    console.log("OK:", response.ok);
+    console.log("URL:", response.url);
 
-  <div class="app-layout">
+    if (!response.ok) {
+      throw new Error("Datei nicht gefunden");
+    }
 
-
-  </div>
+    return response.text();
+  })
+  .then(html => {
+    document.getElementById("Interface").innerHTML = html;
+  })
+  .catch(error => {
+    console.error("Fehler beim Laden von Home.html:", error);
+  });
+</script>
     <script src ="script.js"></script> 
 </body>
 </html>

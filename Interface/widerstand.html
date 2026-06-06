@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Ohmsches Gesetz</title>
+    <link rel="stylesheet" href="Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Ohmsches Gesetz</h2>
+
+        <label>Spannung U in V:</label>
+        <input id="U" type="number" value="24" oninput="berechneWiderstand()">
+
+        <label>Widerstand R in Ω:</label>
+        <input id="R" type="number" value="10" oninput="berechneWiderstand()">
+
+        <div id="resultatWiderstand" class="resultat"></div>
+    </div>
+
+    <script src="Interface.js"></script>
+</body>
+</html>

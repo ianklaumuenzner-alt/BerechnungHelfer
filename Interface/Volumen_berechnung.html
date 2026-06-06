@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumenberechnung</title>
+    <link rel="stylesheet" href="Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Volumenberechnung Zylinder</h2>
+
+        <label>Durchmesser d in m:</label>
+        <input id="durchmesser" type="number" value="1" oninput="berechneVolumen()">
+
+        <label>Höhe h in m:</label>
+        <input id="hoehe" type="number" value="2" oninput="berechneVolumen()">
+
+        <div id="resultatVolumen" class="resultat"></div>
+    </div>
+
+    <script src="Interface.js"></script>
+</body>
+</html>

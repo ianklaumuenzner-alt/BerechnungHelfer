@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Volumen Würfel</title>
-    <link rel="stylesheet" href="Styles_Interface.css">
+    <link rel="stylesheet" href="../Styles_Interface.css">
 </head>
 <body>
 
     <div class="karte">
         <h2>Volumen Würfel</h2>
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="wuerfelEinheit" onchange="berechneWuerfelVolumen(); berechneWuerfelSeite();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
 
         <div class="bereich">
             <h3>Volumen gesucht</h3>
@@ -29,6 +37,6 @@
         </div>
     </div>
 
-    <script src="Interface.js"></script>
+    <script src="../Interface.js"></script>
 </body>
 </html>

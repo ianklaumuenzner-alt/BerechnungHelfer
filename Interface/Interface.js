@@ -35,16 +35,58 @@ function pruefeNenner(wert, einheit) {
     return "";
 }
 
+function ausgabeEinheit(id) {
+    const feld = document.getElementById(id);
+    if (!feld) {
+        return "m";
+    }
+
+    return feld.value;
+}
+
+function einheitFaktor(einheit) {
+    if (einheit === "mm") {
+        return 1000;
+    }
+
+    if (einheit === "cm") {
+        return 100;
+    }
+
+    if (einheit === "km") {
+        return 0.001;
+    }
+
+    return 1;
+}
+
+function formatiereLaenge(wertInMeter, einheit) {
+    const faktor = einheitFaktor(einheit);
+    return `${(wertInMeter * faktor).toFixed(3)} ${einheit}`;
+}
+
+function formatiereFlaeche(wertInQuadratmeter, einheit) {
+    const faktor = einheitFaktor(einheit);
+    return `${(wertInQuadratmeter * faktor * faktor).toFixed(3)} ${einheit}²`;
+}
+
+function formatiereVolumen(wertInKubikmeter, einheit) {
+    const faktor = einheitFaktor(einheit);
+    return `${(wertInKubikmeter * faktor * faktor * faktor).toFixed(3)} ${einheit}³`;
+}
+
 function berechneZylinderVolumen() {
+    const einheit = ausgabeEinheit("zylinderEinheit");
     const d = zahl("zylinderDurchmesserV");
     const h = zahl("zylinderHoeheV");
     const r = d / 2;
     const V = Math.PI * r * r * h;
 
-    schreibeResultat("resultatZylinderVolumen", `Volumen V = ${V.toFixed(3)} m³`);
+    schreibeResultat("resultatZylinderVolumen", `Volumen V = ${formatiereVolumen(V, einheit)}`);
 }
 
 function berechneZylinderHoehe() {
+    const einheit = ausgabeEinheit("zylinderEinheit");
     const V = zahl("zylinderVolumenH");
     const d = zahl("zylinderDurchmesserH");
     const r = d / 2;
@@ -57,10 +99,11 @@ function berechneZylinderHoehe() {
     }
 
     const h = V / grundflaeche;
-    schreibeResultat("resultatZylinderHoehe", `Höhe h = ${h.toFixed(3)} m`);
+    schreibeResultat("resultatZylinderHoehe", `Höhe h = ${formatiereLaenge(h, einheit)}`);
 }
 
 function berechneZylinderDurchmesser() {
+    const einheit = ausgabeEinheit("zylinderEinheit");
     const V = zahl("zylinderVolumenD");
     const h = zahl("zylinderHoeheD");
     const fehler = pruefeNenner(h, "Die Höhe");
@@ -71,19 +114,21 @@ function berechneZylinderDurchmesser() {
     }
 
     const d = 2 * Math.sqrt(V / (Math.PI * h));
-    schreibeResultat("resultatZylinderDurchmesser", `Durchmesser d = ${d.toFixed(3)} m`);
+    schreibeResultat("resultatZylinderDurchmesser", `Durchmesser d = ${formatiereLaenge(d, einheit)}`);
 }
 
 function berechneQuaderVolumen() {
+    const einheit = ausgabeEinheit("quaderEinheit");
     const a = zahl("quaderLaengeV");
     const b = zahl("quaderBreiteV");
     const h = zahl("quaderHoeheV");
     const V = a * b * h;
 
-    schreibeResultat("resultatQuaderVolumen", `Volumen V = ${V.toFixed(3)} m³`);
+    schreibeResultat("resultatQuaderVolumen", `Volumen V = ${formatiereVolumen(V, einheit)}`);
 }
 
 function berechneQuaderLaenge() {
+    const einheit = ausgabeEinheit("quaderEinheit");
     const V = zahl("quaderVolumenA");
     const b = zahl("quaderBreiteA");
     const h = zahl("quaderHoeheA");
@@ -96,10 +141,11 @@ function berechneQuaderLaenge() {
     }
 
     const a = V / nenner;
-    schreibeResultat("resultatQuaderLaenge", `Länge a = ${a.toFixed(3)} m`);
+    schreibeResultat("resultatQuaderLaenge", `Länge a = ${formatiereLaenge(a, einheit)}`);
 }
 
 function berechneQuaderBreite() {
+    const einheit = ausgabeEinheit("quaderEinheit");
     const V = zahl("quaderVolumenB");
     const a = zahl("quaderLaengeB");
     const h = zahl("quaderHoeheB");
@@ -112,10 +158,11 @@ function berechneQuaderBreite() {
     }
 
     const b = V / nenner;
-    schreibeResultat("resultatQuaderBreite", `Breite b = ${b.toFixed(3)} m`);
+    schreibeResultat("resultatQuaderBreite", `Breite b = ${formatiereLaenge(b, einheit)}`);
 }
 
 function berechneQuaderHoehe() {
+    const einheit = ausgabeEinheit("quaderEinheit");
     const V = zahl("quaderVolumenH");
     const a = zahl("quaderLaengeH");
     const b = zahl("quaderBreiteH");
@@ -128,54 +175,61 @@ function berechneQuaderHoehe() {
     }
 
     const h = V / nenner;
-    schreibeResultat("resultatQuaderHoehe", `Höhe h = ${h.toFixed(3)} m`);
+    schreibeResultat("resultatQuaderHoehe", `Höhe h = ${formatiereLaenge(h, einheit)}`);
 }
 
 function berechneWuerfelVolumen() {
+    const einheit = ausgabeEinheit("wuerfelEinheit");
     const a = zahl("wuerfelSeiteV");
     const V = a * a * a;
 
-    schreibeResultat("resultatWuerfelVolumen", `Volumen V = ${V.toFixed(3)} m³`);
+    schreibeResultat("resultatWuerfelVolumen", `Volumen V = ${formatiereVolumen(V, einheit)}`);
 }
 
 function berechneWuerfelSeite() {
+    const einheit = ausgabeEinheit("wuerfelEinheit");
     const V = zahl("wuerfelVolumenA");
     const a = Math.cbrt(V);
 
-    schreibeResultat("resultatWuerfelSeite", `Seitenlänge a = ${a.toFixed(3)} m`);
+    schreibeResultat("resultatWuerfelSeite", `Seitenlänge a = ${formatiereLaenge(a, einheit)}`);
 }
 
 function berechneKugelVolumen() {
+    const einheit = ausgabeEinheit("kugelEinheit");
     const r = zahl("kugelRadiusV");
     const V = (4 / 3) * Math.PI * r * r * r;
 
-    schreibeResultat("resultatKugelVolumen", `Volumen V = ${V.toFixed(3)} m³`);
+    schreibeResultat("resultatKugelVolumen", `Volumen V = ${formatiereVolumen(V, einheit)}`);
 }
 
 function berechneKugelRadius() {
+    const einheit = ausgabeEinheit("kugelEinheit");
     const V = zahl("kugelVolumenR");
     const r = Math.cbrt((3 * V) / (4 * Math.PI));
 
-    schreibeResultat("resultatKugelRadius", `Radius r = ${r.toFixed(3)} m`);
+    schreibeResultat("resultatKugelRadius", `Radius r = ${formatiereLaenge(r, einheit)}`);
 }
 
 function berechneKugelDurchmesser() {
+    const einheit = ausgabeEinheit("kugelEinheit");
     const V = zahl("kugelVolumenD");
     const r = Math.cbrt((3 * V) / (4 * Math.PI));
     const d = 2 * r;
 
-    schreibeResultat("resultatKugelDurchmesser", `Durchmesser d = ${d.toFixed(3)} m`);
+    schreibeResultat("resultatKugelDurchmesser", `Durchmesser d = ${formatiereLaenge(d, einheit)}`);
 }
 
 function berechneKegelVolumen() {
+    const einheit = ausgabeEinheit("kegelEinheit");
     const r = zahl("kegelRadiusV");
     const h = zahl("kegelHoeheV");
     const V = (Math.PI * r * r * h) / 3;
 
-    schreibeResultat("resultatKegelVolumen", `Volumen V = ${V.toFixed(3)} m³`);
+    schreibeResultat("resultatKegelVolumen", `Volumen V = ${formatiereVolumen(V, einheit)}`);
 }
 
 function berechneKegelHoehe() {
+    const einheit = ausgabeEinheit("kegelEinheit");
     const V = zahl("kegelVolumenH");
     const r = zahl("kegelRadiusH");
     const nenner = Math.PI * r * r;
@@ -187,10 +241,11 @@ function berechneKegelHoehe() {
     }
 
     const h = (3 * V) / nenner;
-    schreibeResultat("resultatKegelHoehe", `Höhe h = ${h.toFixed(3)} m`);
+    schreibeResultat("resultatKegelHoehe", `Höhe h = ${formatiereLaenge(h, einheit)}`);
 }
 
 function berechneKegelRadius() {
+    const einheit = ausgabeEinheit("kegelEinheit");
     const V = zahl("kegelVolumenR");
     const h = zahl("kegelHoeheR");
     const fehler = pruefeNenner(h, "Die Höhe");
@@ -201,18 +256,20 @@ function berechneKegelRadius() {
     }
 
     const r = Math.sqrt((3 * V) / (Math.PI * h));
-    schreibeResultat("resultatKegelRadius", `Radius r = ${r.toFixed(3)} m`);
+    schreibeResultat("resultatKegelRadius", `Radius r = ${formatiereLaenge(r, einheit)}`);
 }
 
 function berechnePyramideVolumen() {
+    const einheit = ausgabeEinheit("pyramideEinheit");
     const G = zahl("pyramideGrundflaecheV");
     const h = zahl("pyramideHoeheV");
     const V = (G * h) / 3;
 
-    schreibeResultat("resultatPyramideVolumen", `Volumen V = ${V.toFixed(3)} m³`);
+    schreibeResultat("resultatPyramideVolumen", `Volumen V = ${formatiereVolumen(V, einheit)}`);
 }
 
 function berechnePyramideGrundflaeche() {
+    const einheit = ausgabeEinheit("pyramideEinheit");
     const V = zahl("pyramideVolumenG");
     const h = zahl("pyramideHoeheG");
     const fehler = pruefeNenner(h, "Die Höhe");
@@ -223,10 +280,11 @@ function berechnePyramideGrundflaeche() {
     }
 
     const G = (3 * V) / h;
-    schreibeResultat("resultatPyramideGrundflaeche", `Grundfläche G = ${G.toFixed(3)} m²`);
+    schreibeResultat("resultatPyramideGrundflaeche", `Grundfläche G = ${formatiereFlaeche(G, einheit)}`);
 }
 
 function berechnePyramideHoehe() {
+    const einheit = ausgabeEinheit("pyramideEinheit");
     const V = zahl("pyramideVolumenH");
     const G = zahl("pyramideGrundflaecheH");
     const fehler = pruefeNenner(G, "Die Grundfläche");
@@ -237,7 +295,7 @@ function berechnePyramideHoehe() {
     }
 
     const h = (3 * V) / G;
-    schreibeResultat("resultatPyramideHoehe", `Höhe h = ${h.toFixed(3)} m`);
+    schreibeResultat("resultatPyramideHoehe", `Höhe h = ${formatiereLaenge(h, einheit)}`);
 }
 
 function berechneLeistung() {

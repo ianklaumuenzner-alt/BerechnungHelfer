@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Leistungsberechnung</title>
+    <link rel="stylesheet" href="Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Leistungsberechnung</h2>
+
+        <label>Spannung U in V:</label>
+        <input id="leistungSpannung" type="number" value="24" oninput="berechneLeistung()">
+
+        <label>Strom I in A:</label>
+        <input id="leistungStrom" type="number" value="2" oninput="berechneLeistung()">
+
+        <div id="resultatLeistung" class="resultat"></div>
+    </div>
+
+    <script src="Interface.js"></script>
+</body>
+</html>

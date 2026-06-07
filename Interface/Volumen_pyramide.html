@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumen Pyramide</title>
+    <link rel="stylesheet" href="Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Volumen Pyramide</h2>
+
+        <div class="bereich">
+            <h3>Volumen gesucht</h3>
+
+            <label>Grundfläche G in m²:</label>
+            <input id="pyramideGrundflaecheV" type="number" value="6" oninput="berechnePyramideVolumen()">
+
+            <label>Höhe h in m:</label>
+            <input id="pyramideHoeheV" type="number" value="4" oninput="berechnePyramideVolumen()">
+
+            <div id="resultatPyramideVolumen" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Grundfläche gesucht</h3>
+
+            <label>Volumen V in m³:</label>
+            <input id="pyramideVolumenG" type="number" value="8" oninput="berechnePyramideGrundflaeche()">
+
+            <label>Höhe h in m:</label>
+            <input id="pyramideHoeheG" type="number" value="4" oninput="berechnePyramideGrundflaeche()">
+
+            <div id="resultatPyramideGrundflaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe gesucht</h3>
+
+            <label>Volumen V in m³:</label>
+            <input id="pyramideVolumenH" type="number" value="8" oninput="berechnePyramideHoehe()">
+
+            <label>Grundfläche G in m²:</label>
+            <input id="pyramideGrundflaecheH" type="number" value="6" oninput="berechnePyramideHoehe()">
+
+            <div id="resultatPyramideHoehe" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="Interface.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumen Kegel</title>
+    <link rel="stylesheet" href="Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Volumen Kegel</h2>
+
+        <div class="bereich">
+            <h3>Volumen gesucht</h3>
+
+            <label>Radius r in m:</label>
+            <input id="kegelRadiusV" type="number" value="1" oninput="berechneKegelVolumen()">
+
+            <label>Höhe h in m:</label>
+            <input id="kegelHoeheV" type="number" value="3" oninput="berechneKegelVolumen()">
+
+            <div id="resultatKegelVolumen" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe gesucht</h3>
+
+            <label>Volumen V in m³:</label>
+            <input id="kegelVolumenH" type="number" value="3.142" oninput="berechneKegelHoehe()">
+
+            <label>Radius r in m:</label>
+            <input id="kegelRadiusH" type="number" value="1" oninput="berechneKegelHoehe()">
+
+            <div id="resultatKegelHoehe" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Radius gesucht</h3>
+
+            <label>Volumen V in m³:</label>
+            <input id="kegelVolumenR" type="number" value="3.142" oninput="berechneKegelRadius()">
+
+            <label>Höhe h in m:</label>
+            <input id="kegelHoeheR" type="number" value="3" oninput="berechneKegelRadius()">
+
+            <div id="resultatKegelRadius" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="Interface.js"></script>
+</body>
+</html>

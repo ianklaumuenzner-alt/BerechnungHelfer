@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumen Kugel</title>
+    <link rel="stylesheet" href="Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Volumen Kugel</h2>
+
+        <div class="bereich">
+            <h3>Volumen gesucht</h3>
+
+            <label>Radius r in m:</label>
+            <input id="kugelRadiusV" type="number" value="1" oninput="berechneKugelVolumen()">
+
+            <div id="resultatKugelVolumen" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Radius gesucht</h3>
+
+            <label>Volumen V in m³:</label>
+            <input id="kugelVolumenR" type="number" value="4.189" oninput="berechneKugelRadius()">
+
+            <div id="resultatKugelRadius" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Durchmesser gesucht</h3>
+
+            <label>Volumen V in m³:</label>
+            <input id="kugelVolumenD" type="number" value="4.189" oninput="berechneKugelDurchmesser()">
+
+            <div id="resultatKugelDurchmesser" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="Interface.js"></script>
+</body>
+</html>

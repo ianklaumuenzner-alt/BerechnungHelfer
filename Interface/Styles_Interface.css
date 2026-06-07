@@ -18,6 +18,18 @@ body {
     border: 1px solid #444;
 }
 
+.bereich {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #444;
+}
+
+.bereich h3 {
+    margin: 0 0 8px;
+    color: #e5e7eb;
+    font-size: 18px;
+}
+
 h2 {
     margin-top: 0;
     color: #4ade80;
@@ -52,4 +64,8 @@ input {
     border-radius: 6px;
 
     font-size: 18px;
+}
+
+.bereich .resultat {
+    margin-top: 16px;
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fläche Quadrat</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Quadrat</h2>
+        <img class="hilfe-bild" src="SVG/quadrat.svg" alt="Skizze Quadrat">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="quadratEinheit" onchange="berechneQuadratFlaeche(); berechneQuadratSeite();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Fläche gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = l²</div>
+
+            <label>Seitenlänge l:</label>
+            <div class="eingabe-zeile">
+                <input id="quadratSeiteA" type="number" value="4" oninput="berechneQuadratFlaeche()">
+                <select id="quadratSeiteAEinheit" onchange="berechneQuadratFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatQuadratFlaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Seitenlänge gesucht</h3>
+            <div class="formel"><span>Formel:</span> l = √A</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="quadratFlaecheL" type="number" value="16" oninput="berechneQuadratSeite()">
+                <select id="quadratFlaecheLEinheit" onchange="berechneQuadratSeite()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <div id="resultatQuadratSeite" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

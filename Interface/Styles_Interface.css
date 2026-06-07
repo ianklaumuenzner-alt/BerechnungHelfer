@@ -30,6 +30,37 @@ body {
     font-size: 18px;
 }
 
+.formel {
+    max-width: 430px;
+    margin: 10px 0 14px;
+    padding: 12px 14px;
+    background-color: #111;
+    border: 1px solid #3a3a3a;
+    border-left: 4px solid #4ade80;
+    border-radius: 6px;
+    color: #e5e7eb;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.formel span {
+    color: #4ade80;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.hilfe-bild {
+    display: block;
+    width: 100%;
+    max-width: 430px;
+    margin: 12px 0 14px;
+    padding: 12px;
+    background-color: #f8edd2;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+}
+
 h2 {
     margin-top: 0;
     color: #4ade80;
@@ -54,6 +85,21 @@ select {
 
     border: 1px solid #555;
     border-radius: 6px;
+}
+
+.eingabe-zeile {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    max-width: 430px;
+}
+
+.eingabe-zeile input {
+    flex: 1;
+}
+
+.eingabe-zeile select {
+    width: 110px;
 }
 
 .resultat {

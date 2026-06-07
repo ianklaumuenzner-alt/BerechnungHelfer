@@ -12,7 +12,9 @@ Der Berechnungshelfer soll ohne Server und ohne `fetch` funktionieren. `Main.htm
 - `Styles_Main.css`: Design nur für Hauptlayout und Navigation.
 - `script.js`: Enthält `ladeSeite(pfad)` und ändert nur `seitenFenster.data`.
 - `Interface/`: Enthält einzelne Berechnungsseiten, die nicht weiter unterteilt sind.
-- `Interface/Geometrie/`: Enthält die Geometrie- und Volumen-Körperseiten.
+- `Interface/Geometrie/`: Enthält die Unterordner `Koerper` und `Flaechen`.
+- `Interface/Geometrie/Koerper/`: Enthält die Volumen-Körperseiten.
+- `Interface/Geometrie/Flaechen/`: Enthält die Flächenberechnungen.
 - `Interface/Interface.js`: Gemeinsame Berechnungsfunktionen für Interface-Seiten.
 - `Interface/Styles_Interface.css`: Gemeinsames Design für Interface-Seiten.
 
@@ -31,13 +33,13 @@ Der Berechnungshelfer soll ohne Server und ohne `fetch` funktionieren. `Main.htm
 - In `Interface/Interface.js` die Funktion `berechneLeistung()` ergänzt.
 - In `Main.html` einen Button für Leistungsberechnung ergänzt.
 - In `Main.html` eine aufklappbare Kategorie `Volumen Körper` erstellt.
-- Die vorhandene Zylinderseite `Interface/Geometrie/Volumen_berechnung.html` in diese Kategorie eingeordnet.
+- Die vorhandene Zylinderseite `Interface/Geometrie/Koerper/Volumen_berechnung.html` in diese Kategorie eingeordnet.
 - Neue Volumen-Seiten erstellt:
-  - `Interface/Geometrie/Volumen_quader.html`
-  - `Interface/Geometrie/Volumen_wuerfel.html`
-  - `Interface/Geometrie/Volumen_kugel.html`
-  - `Interface/Geometrie/Volumen_kegel.html`
-  - `Interface/Geometrie/Volumen_pyramide.html`
+  - `Interface/Geometrie/Koerper/Volumen_quader.html`
+  - `Interface/Geometrie/Koerper/Volumen_wuerfel.html`
+  - `Interface/Geometrie/Koerper/Volumen_kugel.html`
+  - `Interface/Geometrie/Koerper/Volumen_kegel.html`
+  - `Interface/Geometrie/Koerper/Volumen_pyramide.html`
 - In `Interface/Interface.js` die passenden Volumen-Funktionen ergänzt:
   - `berechneVolumenQuader()`
   - `berechneVolumenWuerfel()`
@@ -50,11 +52,29 @@ Der Berechnungshelfer soll ohne Server und ohne `fetch` funktionieren. `Main.htm
 - Beispiel: Beim Quader können `Volumen`, `Länge a`, `Breite b` oder `Höhe h` gesucht werden.
 - Der Quader ist wieder ein normaler Quader mit drei Maßen `a`, `b` und `h`; keine quadratische Grundfläche.
 - Die Volumen-Seiten berechnen aktuell gezielt Volumen-Umstellungen, nicht Oberfläche.
-- Alle Körperseiten wurden in den Ordner `Interface/Geometrie/` verschoben.
-- Die Navigation in `Main.html` zeigt bei Körpern jetzt auf `Interface/Geometrie/...`.
-- Geometrie-Seiten binden wegen der tieferen Ordnerstruktur `../Styles_Interface.css` und `../Interface.js` ein.
+- Alle Körperseiten wurden in den Ordner `Interface/Geometrie/Koerper/` verschoben.
+- Die Navigation in `Main.html` zeigt bei Körpern jetzt auf `Interface/Geometrie/Koerper/...`.
+- Geometrie-Seiten binden wegen der tieferen Ordnerstruktur `../../Styles_Interface.css` und `../../Interface.js` ein.
 - Jede Geometrie-Seite hat eine Ausgabe-Einheit-Auswahl: `mm`, `cm`, `m`, `km`.
-- Eingaben bleiben aktuell in `m`, `m²` oder `m³`; nur die Ergebnisse werden in die gewählte Ausgabe-Einheit umgerechnet.
+- Jede Geometrie-Eingabe hat zusätzlich eine eigene Einheit-Auswahl direkt neben dem Eingabefeld.
+- Längen-Eingaben können `mm`, `cm`, `m` oder `km` sein.
+- Flächen-Eingaben können `mm²`, `cm²`, `m²` oder `km²` sein.
+- Volumen-Eingaben können `mm³`, `cm³`, `m³` oder `km³` sein.
+- Die Funktionen rechnen Eingaben intern zuerst in `m`, `m²` oder `m³` um und geben danach in der gewählten Ausgabe-Einheit aus.
+- Jede Geometrie-Berechnung hat direkt im Abschnitt eine Formelbox im Stil einer kompakten Formelsammlung.
+- Formelboxen nutzen die CSS-Klasse `.formel` in `Interface/Styles_Interface.css`.
+- Neue Navigation `Geometrie Flächen` in `Main.html` ergänzt.
+- Neue Flächenberechnungen erstellt:
+  - `Interface/Geometrie/Flaechen/Flaeche_quadrat.html`
+  - `Interface/Geometrie/Flaechen/Flaeche_rechteck.html`
+  - `Interface/Geometrie/Flaechen/Flaeche_dreieck.html`
+  - `Interface/Geometrie/Flaechen/Flaeche_trapez.html`
+  - `Interface/Geometrie/Flaechen/Flaeche_kreis.html`
+  - `Interface/Geometrie/Flaechen/Flaeche_ellipse.html`
+- SVG-Hilfebilder liegen in:
+  - `Interface/Geometrie/Flaechen/SVG/`
+  - `Interface/Geometrie/Koerper/SVG/`
+- Flächenfunktionen in `Interface/Interface.js` ergänzt; insgesamt wurden 35 Geometrie-Berechnungen lokal geprüft.
 
 ## Prüfungen
 

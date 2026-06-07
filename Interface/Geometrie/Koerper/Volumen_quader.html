@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumen Quader</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Quader</h2>
+        <img class="hilfe-bild" src="SVG/quader.svg" alt="Skizze Quader">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="quaderEinheit" onchange="berechneQuaderVolumen(); berechneQuaderLaenge(); berechneQuaderBreite(); berechneQuaderHoehe();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Volumen gesucht</h3>
+            <div class="formel"><span>Formel:</span> V = a · b · h</div>
+
+            <label>Länge a:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderLaengeV" type="number" value="3" oninput="berechneQuaderVolumen()">
+                <select id="quaderLaengeVEinheit" onchange="berechneQuaderVolumen()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Breite b:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderBreiteV" type="number" value="2" oninput="berechneQuaderVolumen()">
+                <select id="quaderBreiteVEinheit" onchange="berechneQuaderVolumen()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderHoeheV" type="number" value="4" oninput="berechneQuaderVolumen()">
+                <select id="quaderHoeheVEinheit" onchange="berechneQuaderVolumen()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatQuaderVolumen" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Länge a gesucht</h3>
+            <div class="formel"><span>Formel:</span> a = V / (b · h)</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderVolumenA" type="number" value="24" oninput="berechneQuaderLaenge()">
+                <select id="quaderVolumenAEinheit" onchange="berechneQuaderLaenge()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Breite b:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderBreiteA" type="number" value="2" oninput="berechneQuaderLaenge()">
+                <select id="quaderBreiteAEinheit" onchange="berechneQuaderLaenge()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderHoeheA" type="number" value="4" oninput="berechneQuaderLaenge()">
+                <select id="quaderHoeheAEinheit" onchange="berechneQuaderLaenge()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatQuaderLaenge" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Breite b gesucht</h3>
+            <div class="formel"><span>Formel:</span> b = V / (a · h)</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderVolumenB" type="number" value="24" oninput="berechneQuaderBreite()">
+                <select id="quaderVolumenBEinheit" onchange="berechneQuaderBreite()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Länge a:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderLaengeB" type="number" value="3" oninput="berechneQuaderBreite()">
+                <select id="quaderLaengeBEinheit" onchange="berechneQuaderBreite()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderHoeheB" type="number" value="4" oninput="berechneQuaderBreite()">
+                <select id="quaderHoeheBEinheit" onchange="berechneQuaderBreite()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatQuaderBreite" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe h gesucht</h3>
+            <div class="formel"><span>Formel:</span> h = V / (a · b)</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderVolumenH" type="number" value="24" oninput="berechneQuaderHoehe()">
+                <select id="quaderVolumenHEinheit" onchange="berechneQuaderHoehe()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Länge a:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderLaengeH" type="number" value="3" oninput="berechneQuaderHoehe()">
+                <select id="quaderLaengeHEinheit" onchange="berechneQuaderHoehe()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Breite b:</label>
+            <div class="eingabe-zeile">
+                <input id="quaderBreiteH" type="number" value="2" oninput="berechneQuaderHoehe()">
+                <select id="quaderBreiteHEinheit" onchange="berechneQuaderHoehe()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatQuaderHoehe" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

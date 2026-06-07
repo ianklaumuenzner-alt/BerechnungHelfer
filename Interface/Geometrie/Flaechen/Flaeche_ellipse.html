@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fläche Ellipse</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Ellipse</h2>
+        <img class="hilfe-bild" src="SVG/ellipse.svg" alt="Skizze Ellipse">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="ellipseEinheit" onchange="berechneEllipseFlaeche(); berechneEllipseGrosseAchse(); berechneEllipseKleineAchse();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Fläche gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = (π · D · d) / 4</div>
+
+            <label>Große Achse D:</label>
+            <div class="eingabe-zeile">
+                <input id="ellipseAchseGrossA" type="number" value="6" oninput="berechneEllipseFlaeche()">
+                <select id="ellipseAchseGrossAEinheit" onchange="berechneEllipseFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Kleine Achse d:</label>
+            <div class="eingabe-zeile">
+                <input id="ellipseAchseKleinA" type="number" value="3" oninput="berechneEllipseFlaeche()">
+                <select id="ellipseAchseKleinAEinheit" onchange="berechneEllipseFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatEllipseFlaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Große Achse gesucht</h3>
+            <div class="formel"><span>Formel:</span> D = (4 · A) / (π · d)</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="ellipseFlaecheD" type="number" value="14.137" oninput="berechneEllipseGrosseAchse()">
+                <select id="ellipseFlaecheDEinheit" onchange="berechneEllipseGrosseAchse()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Kleine Achse d:</label>
+            <div class="eingabe-zeile">
+                <input id="ellipseAchseKleinD" type="number" value="3" oninput="berechneEllipseGrosseAchse()">
+                <select id="ellipseAchseKleinDEinheit" onchange="berechneEllipseGrosseAchse()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatEllipseGrosseAchse" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Kleine Achse gesucht</h3>
+            <div class="formel"><span>Formel:</span> d = (4 · A) / (π · D)</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="ellipseFlaecheKleinD" type="number" value="14.137" oninput="berechneEllipseKleineAchse()">
+                <select id="ellipseFlaecheKleinDEinheit" onchange="berechneEllipseKleineAchse()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Große Achse D:</label>
+            <div class="eingabe-zeile">
+                <input id="ellipseAchseGrossD" type="number" value="6" oninput="berechneEllipseKleineAchse()">
+                <select id="ellipseAchseGrossDEinheit" onchange="berechneEllipseKleineAchse()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatEllipseKleineAchse" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

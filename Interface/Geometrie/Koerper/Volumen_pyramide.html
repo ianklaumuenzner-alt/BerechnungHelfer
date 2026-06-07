@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumen Pyramide</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Volumen Pyramide</h2>
+        <img class="hilfe-bild" src="SVG/pyramide.svg" alt="Skizze Pyramide">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="pyramideEinheit" onchange="berechnePyramideVolumen(); berechnePyramideGrundflaeche(); berechnePyramideHoehe();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Volumen gesucht</h3>
+            <div class="formel"><span>Formel:</span> V = (G · h) / 3</div>
+
+            <label>Grundfläche G:</label>
+            <div class="eingabe-zeile">
+                <input id="pyramideGrundflaecheV" type="number" value="6" oninput="berechnePyramideVolumen()">
+                <select id="pyramideGrundflaecheVEinheit" onchange="berechnePyramideVolumen()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="pyramideHoeheV" type="number" value="4" oninput="berechnePyramideVolumen()">
+                <select id="pyramideHoeheVEinheit" onchange="berechnePyramideVolumen()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatPyramideVolumen" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Grundfläche gesucht</h3>
+            <div class="formel"><span>Formel:</span> G = (3 · V) / h</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="pyramideVolumenG" type="number" value="8" oninput="berechnePyramideGrundflaeche()">
+                <select id="pyramideVolumenGEinheit" onchange="berechnePyramideGrundflaeche()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="pyramideHoeheG" type="number" value="4" oninput="berechnePyramideGrundflaeche()">
+                <select id="pyramideHoeheGEinheit" onchange="berechnePyramideGrundflaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatPyramideGrundflaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe gesucht</h3>
+            <div class="formel"><span>Formel:</span> h = (3 · V) / G</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="pyramideVolumenH" type="number" value="8" oninput="berechnePyramideHoehe()">
+                <select id="pyramideVolumenHEinheit" onchange="berechnePyramideHoehe()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Grundfläche G:</label>
+            <div class="eingabe-zeile">
+                <input id="pyramideGrundflaecheH" type="number" value="6" oninput="berechnePyramideHoehe()">
+                <select id="pyramideGrundflaecheHEinheit" onchange="berechnePyramideHoehe()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <div id="resultatPyramideHoehe" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fläche Trapez</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Trapez</h2>
+        <img class="hilfe-bild" src="SVG/trapez.svg" alt="Skizze Trapez">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="trapezEinheit" onchange="berechneTrapezFlaeche(); berechneTrapezHoehe();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Fläche gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = ((l₁ + l₂) / 2) · b</div>
+
+            <label>Große Länge l₁:</label>
+            <div class="eingabe-zeile">
+                <input id="trapezLaenge1A" type="number" value="8" oninput="berechneTrapezFlaeche()">
+                <select id="trapezLaenge1AEinheit" onchange="berechneTrapezFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Kleine Länge l₂:</label>
+            <div class="eingabe-zeile">
+                <input id="trapezLaenge2A" type="number" value="4" oninput="berechneTrapezFlaeche()">
+                <select id="trapezLaenge2AEinheit" onchange="berechneTrapezFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Höhe b:</label>
+            <div class="eingabe-zeile">
+                <input id="trapezHoeheA" type="number" value="3" oninput="berechneTrapezFlaeche()">
+                <select id="trapezHoeheAEinheit" onchange="berechneTrapezFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatTrapezFlaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe gesucht</h3>
+            <div class="formel"><span>Formel:</span> b = (2 · A) / (l₁ + l₂)</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="trapezFlaecheB" type="number" value="18" oninput="berechneTrapezHoehe()">
+                <select id="trapezFlaecheBEinheit" onchange="berechneTrapezHoehe()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Große Länge l₁:</label>
+            <div class="eingabe-zeile">
+                <input id="trapezLaenge1B" type="number" value="8" oninput="berechneTrapezHoehe()">
+                <select id="trapezLaenge1BEinheit" onchange="berechneTrapezHoehe()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Kleine Länge l₂:</label>
+            <div class="eingabe-zeile">
+                <input id="trapezLaenge2B" type="number" value="4" oninput="berechneTrapezHoehe()">
+                <select id="trapezLaenge2BEinheit" onchange="berechneTrapezHoehe()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatTrapezHoehe" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

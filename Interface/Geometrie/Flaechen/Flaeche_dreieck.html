@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fläche Dreieck</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Dreieck</h2>
+        <img class="hilfe-bild" src="SVG/dreieck.svg" alt="Skizze Dreieck">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="dreieckEinheit" onchange="berechneDreieckFlaeche(); berechneDreieckGrundseite(); berechneDreieckHoehe();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Fläche gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = (l · b) / 2</div>
+
+            <label>Grundseite l:</label>
+            <div class="eingabe-zeile">
+                <input id="dreieckGrundseiteA" type="number" value="6" oninput="berechneDreieckFlaeche()">
+                <select id="dreieckGrundseiteAEinheit" onchange="berechneDreieckFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Höhe b:</label>
+            <div class="eingabe-zeile">
+                <input id="dreieckHoeheA" type="number" value="4" oninput="berechneDreieckFlaeche()">
+                <select id="dreieckHoeheAEinheit" onchange="berechneDreieckFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatDreieckFlaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Grundseite gesucht</h3>
+            <div class="formel"><span>Formel:</span> l = (2 · A) / b</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="dreieckFlaecheL" type="number" value="12" oninput="berechneDreieckGrundseite()">
+                <select id="dreieckFlaecheLEinheit" onchange="berechneDreieckGrundseite()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Höhe b:</label>
+            <div class="eingabe-zeile">
+                <input id="dreieckHoeheL" type="number" value="4" oninput="berechneDreieckGrundseite()">
+                <select id="dreieckHoeheLEinheit" onchange="berechneDreieckGrundseite()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatDreieckGrundseite" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe gesucht</h3>
+            <div class="formel"><span>Formel:</span> b = (2 · A) / l</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="dreieckFlaecheB" type="number" value="12" oninput="berechneDreieckHoehe()">
+                <select id="dreieckFlaecheBEinheit" onchange="berechneDreieckHoehe()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Grundseite l:</label>
+            <div class="eingabe-zeile">
+                <input id="dreieckGrundseiteB" type="number" value="6" oninput="berechneDreieckHoehe()">
+                <select id="dreieckGrundseiteBEinheit" onchange="berechneDreieckHoehe()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatDreieckHoehe" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

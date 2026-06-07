@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fläche Kreis</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Kreis</h2>
+        <img class="hilfe-bild" src="SVG/kreis.svg" alt="Skizze Kreis">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="kreisEinheit" onchange="berechneKreisFlaecheRadius(); berechneKreisFlaecheDurchmesser(); berechneKreisRadius(); berechneKreisDurchmesser();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Fläche mit Radius gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = π · r²</div>
+
+            <label>Radius r:</label>
+            <div class="eingabe-zeile">
+                <input id="kreisRadiusA" type="number" value="2" oninput="berechneKreisFlaecheRadius()">
+                <select id="kreisRadiusAEinheit" onchange="berechneKreisFlaecheRadius()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatKreisFlaecheRadius" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Fläche mit Durchmesser gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = (d² · π) / 4</div>
+
+            <label>Durchmesser d:</label>
+            <div class="eingabe-zeile">
+                <input id="kreisDurchmesserA" type="number" value="4" oninput="berechneKreisFlaecheDurchmesser()">
+                <select id="kreisDurchmesserAEinheit" onchange="berechneKreisFlaecheDurchmesser()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatKreisFlaecheDurchmesser" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Radius gesucht</h3>
+            <div class="formel"><span>Formel:</span> r = √(A / π)</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="kreisFlaecheR" type="number" value="12.566" oninput="berechneKreisRadius()">
+                <select id="kreisFlaecheREinheit" onchange="berechneKreisRadius()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <div id="resultatKreisRadius" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Durchmesser gesucht</h3>
+            <div class="formel"><span>Formel:</span> d = 2 · √(A / π)</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="kreisFlaecheD" type="number" value="12.566" oninput="berechneKreisDurchmesser()">
+                <select id="kreisFlaecheDEinheit" onchange="berechneKreisDurchmesser()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <div id="resultatKreisDurchmesser" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

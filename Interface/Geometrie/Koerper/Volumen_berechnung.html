@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Volumenberechnung</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Zylinder</h2>
+        <img class="hilfe-bild" src="SVG/zylinder.svg" alt="Skizze Zylinder">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="zylinderEinheit" onchange="berechneZylinderVolumen(); berechneZylinderHoehe(); berechneZylinderDurchmesser();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Volumen gesucht</h3>
+            <div class="formel"><span>Formel:</span> V = π · r² · h<br>r = d / 2</div>
+
+            <label>Durchmesser d:</label>
+            <div class="eingabe-zeile">
+                <input id="zylinderDurchmesserV" type="number" value="1" oninput="berechneZylinderVolumen()">
+                <select id="zylinderDurchmesserVEinheit" onchange="berechneZylinderVolumen()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="zylinderHoeheV" type="number" value="2" oninput="berechneZylinderVolumen()">
+                <select id="zylinderHoeheVEinheit" onchange="berechneZylinderVolumen()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatZylinderVolumen" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Höhe gesucht</h3>
+            <div class="formel"><span>Formel:</span> h = V / (π · r²)<br>r = d / 2</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="zylinderVolumenH" type="number" value="1.571" oninput="berechneZylinderHoehe()">
+                <select id="zylinderVolumenHEinheit" onchange="berechneZylinderHoehe()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Durchmesser d:</label>
+            <div class="eingabe-zeile">
+                <input id="zylinderDurchmesserH" type="number" value="1" oninput="berechneZylinderHoehe()">
+                <select id="zylinderDurchmesserHEinheit" onchange="berechneZylinderHoehe()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatZylinderHoehe" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Durchmesser gesucht</h3>
+            <div class="formel"><span>Formel:</span> d = 2 · √(V / (π · h))</div>
+
+            <label>Volumen V:</label>
+            <div class="eingabe-zeile">
+                <input id="zylinderVolumenD" type="number" value="1.571" oninput="berechneZylinderDurchmesser()">
+                <select id="zylinderVolumenDEinheit" onchange="berechneZylinderDurchmesser()">
+                    <option value="mm">mm³</option>
+                    <option value="cm">cm³</option>
+                    <option value="m" selected>m³</option>
+                    <option value="km">km³</option>
+                </select>
+            </div>
+
+            <label>Höhe h:</label>
+            <div class="eingabe-zeile">
+                <input id="zylinderHoeheD" type="number" value="2" oninput="berechneZylinderDurchmesser()">
+                <select id="zylinderHoeheDEinheit" onchange="berechneZylinderDurchmesser()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatZylinderDurchmesser" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <polygon points="120,25 55,135 175,145" fill="#f4dfbd" stroke="#111" stroke-width="3"/>
+  <polygon points="120,25 175,145 205,105" fill="#ead2ab" stroke="#111" stroke-width="3"/>
+  <polygon points="55,135 175,145 205,105 85,95" fill="none" stroke="#111" stroke-width="3"/>
+  <line x1="120" y1="25" x2="120" y2="122" stroke="#0b84d8" stroke-width="3" stroke-dasharray="6 5"/>
+  <text x="130" y="82" font-size="18">h</text>
+  <text x="98" y="158" font-size="18">G</text>
+</svg>

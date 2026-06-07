@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fläche Rechteck</title>
+    <link rel="stylesheet" href="../../Styles_Interface.css">
+</head>
+<body>
+
+    <div class="karte">
+        <h2>Rechteck</h2>
+        <img class="hilfe-bild" src="SVG/rechteck.svg" alt="Skizze Rechteck">
+
+        <label>Ausgabe-Einheit:</label>
+        <select id="rechteckEinheit" onchange="berechneRechteckFlaeche(); berechneRechteckLaenge(); berechneRechteckBreite();">
+            <option value="mm">Millimeter</option>
+            <option value="cm">Zentimeter</option>
+            <option value="m" selected>Meter</option>
+            <option value="km">Kilometer</option>
+        </select>
+
+        <div class="bereich">
+            <h3>Fläche gesucht</h3>
+            <div class="formel"><span>Formel:</span> A = l · b</div>
+
+            <label>Länge l:</label>
+            <div class="eingabe-zeile">
+                <input id="rechteckLaengeA" type="number" value="5" oninput="berechneRechteckFlaeche()">
+                <select id="rechteckLaengeAEinheit" onchange="berechneRechteckFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <label>Breite b:</label>
+            <div class="eingabe-zeile">
+                <input id="rechteckBreiteA" type="number" value="3" oninput="berechneRechteckFlaeche()">
+                <select id="rechteckBreiteAEinheit" onchange="berechneRechteckFlaeche()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatRechteckFlaeche" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Länge gesucht</h3>
+            <div class="formel"><span>Formel:</span> l = A / b</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="rechteckFlaecheL" type="number" value="15" oninput="berechneRechteckLaenge()">
+                <select id="rechteckFlaecheLEinheit" onchange="berechneRechteckLaenge()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Breite b:</label>
+            <div class="eingabe-zeile">
+                <input id="rechteckBreiteL" type="number" value="3" oninput="berechneRechteckLaenge()">
+                <select id="rechteckBreiteLEinheit" onchange="berechneRechteckLaenge()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatRechteckLaenge" class="resultat"></div>
+        </div>
+
+        <div class="bereich">
+            <h3>Breite gesucht</h3>
+            <div class="formel"><span>Formel:</span> b = A / l</div>
+
+            <label>Fläche A:</label>
+            <div class="eingabe-zeile">
+                <input id="rechteckFlaecheB" type="number" value="15" oninput="berechneRechteckBreite()">
+                <select id="rechteckFlaecheBEinheit" onchange="berechneRechteckBreite()">
+                    <option value="mm">mm²</option>
+                    <option value="cm">cm²</option>
+                    <option value="m" selected>m²</option>
+                    <option value="km">km²</option>
+                </select>
+            </div>
+
+            <label>Länge l:</label>
+            <div class="eingabe-zeile">
+                <input id="rechteckLaengeB" type="number" value="5" oninput="berechneRechteckBreite()">
+                <select id="rechteckLaengeBEinheit" onchange="berechneRechteckBreite()">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m" selected>m</option>
+                    <option value="km">km</option>
+                </select>
+            </div>
+
+            <div id="resultatRechteckBreite" class="resultat"></div>
+        </div>
+    </div>
+
+    <script src="../../Interface.js"></script>
+</body>
+</html>

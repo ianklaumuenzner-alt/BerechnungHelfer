@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 170">
+  <polygon points="45,125 210,125 165,45 85,45" fill="#f4dfbd" stroke="#111" stroke-width="4"/>
+  <line x1="85" y1="45" x2="85" y2="125" stroke="#0b84d8" stroke-width="3" stroke-dasharray="6 5"/>
+  <line x1="85" y1="28" x2="165" y2="28" stroke="#111" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <line x1="45" y1="145" x2="210" y2="145" stroke="#111" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <line x1="225" y1="45" x2="225" y2="125" stroke="#111" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="118" y="24" font-size="18">l₂</text>
+  <text x="115" y="164" font-size="18">l₁</text>
+  <text x="232" y="88" font-size="18">b</text>
+  <defs><marker id="a" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,3 L6,0 L6,6 Z" fill="#111"/></marker></defs>
+</svg>

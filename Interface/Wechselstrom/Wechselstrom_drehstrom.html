@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Wechselstrom und Drehstrom</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Wechselstrom und Drehstrom</h2>
+        <p class="hinweis">Effektivwert, Scheitelwert, Frequenz, Blindwiderstände und Drehstromleistung.</p>
+
+        <div class="bereich" data-formel="wechselstromScheitel">
+            <h3>Scheitelwert gesucht</h3>
+            <div class="formel"></div>
+            <label>Effektivwert Ueff in V:</label><input data-wert="Ueff" type="number" value="230">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="wechselstromEffektiv">
+            <h3>Effektivwert gesucht</h3>
+            <div class="formel"></div>
+            <label>Scheitelwert Û in V:</label><input data-wert="Umax" type="number" value="325.27">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="frequenzPeriode">
+            <h3>Frequenz gesucht</h3>
+            <div class="formel"></div>
+            <label>Periodendauer T in s:</label><input data-wert="T" type="number" value="0.02">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="induktiverBlindwiderstand">
+            <h3>Induktiver Blindwiderstand gesucht</h3>
+            <div class="formel"></div>
+            <label>Frequenz f in Hz:</label><input data-wert="f" type="number" value="50">
+            <label>Induktivität L in H:</label><input data-wert="L" type="number" value="0.1">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="kapazitiverBlindwiderstand">
+            <h3>Kapazitiver Blindwiderstand gesucht</h3>
+            <div class="formel"></div>
+            <label>Frequenz f in Hz:</label><input data-wert="f" type="number" value="50">
+            <label>Kapazität C in F:</label><input data-wert="C" type="number" value="0.0001">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="drehstromLeistung">
+            <h3>Drehstromleistung gesucht</h3>
+            <div class="formel"></div>
+            <label>Leiterspannung U in V:</label><input data-wert="U" type="number" value="400">
+            <label>Leiterstrom I in A:</label><input data-wert="I" type="number" value="10">
+            <label>Leistungsfaktor cos φ:</label><input data-wert="cosPhi" type="number" value="0.8">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Elektrisches Feld und Kondensator</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Elektrisches Feld und Kondensator</h2>
+        <p class="hinweis">Wichtige Formeln für Feldstärke, Kapazität, Energie und RC-Zeitkonstante.</p>
+
+        <div class="bereich" data-formel="feldstaerke">
+            <h3>Elektrische Feldstärke gesucht</h3>
+            <div class="formel"></div>
+            <label>Kraft F in N:</label><input data-wert="F" type="number" value="2">
+            <label>Ladung Q in C:</label><input data-wert="Q" type="number" value="0.5">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="kapazitaet">
+            <h3>Kapazität gesucht</h3>
+            <div class="formel"></div>
+            <label>Ladung Q in C:</label><input data-wert="Q" type="number" value="0.002">
+            <label>Spannung U in V:</label><input data-wert="U" type="number" value="10">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="kondensatorEnergie">
+            <h3>Gespeicherte Energie gesucht</h3>
+            <div class="formel"></div>
+            <label>Kapazität C in F:</label><input data-wert="C" type="number" value="0.001">
+            <label>Spannung U in V:</label><input data-wert="U" type="number" value="24">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="rcTau">
+            <h3>RC-Zeitkonstante gesucht</h3>
+            <div class="formel"></div>
+            <label>Widerstand R in Ω:</label><input data-wert="R" type="number" value="1000">
+            <label>Kapazität C in F:</label><input data-wert="C" type="number" value="0.000001">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

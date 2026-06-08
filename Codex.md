@@ -75,6 +75,19 @@ Der Berechnungshelfer soll ohne Server und ohne `fetch` funktionieren. `Main.htm
   - `Interface/Geometrie/Flaechen/SVG/`
   - `Interface/Geometrie/Koerper/SVG/`
 - Flächenfunktionen in `Interface/Interface.js` ergänzt; insgesamt wurden 35 Geometrie-Berechnungen lokal geprüft.
+- Große Erweiterung nach dem PDF-Inhaltsverzeichnis begonnen:
+  - `Interface/Mathematik/Mathematik_grundlagen.html`
+  - `Interface/Mechanik/Mechanik_grundlagen.html`
+  - `Interface/Waermelehre/Waermelehre_grundlagen.html`
+  - `Interface/Elektrotechnik/Elektrotechnik_grundlagen.html`
+  - `Interface/Felder/Elektrisches_feld_kondensator.html`
+  - `Interface/Felder/Magnetisches_feld.html`
+  - `Interface/Wechselstrom/Wechselstrom_drehstrom.html`
+  - `Interface/Maschinen/Transformator_maschinen.html`
+- Für diese neue Ausbaustufe wurde in `Interface/Interface.js` ein generischer Formel-Rechner ergänzt (`formelRechner` und `initialisiereFormelRechner()`).
+- Neue Navigationseinträge in `Main.html`: Mathematik, Mechanik und Wärme, Elektrotechnik, Felder und Kondensator, Wechselstrom, Maschinen.
+- Die PDF ist bildbasiert und nicht als Text extrahierbar; die Erweiterung wurde anhand des sichtbaren Inhaltsverzeichnisses und lesbarer Kapitelseiten strukturiert.
+- 35 generische Formeln wurden lokal geprüft.
 
 ## Prüfungen
 

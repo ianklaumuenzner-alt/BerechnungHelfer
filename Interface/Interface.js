@@ -525,8 +525,302 @@ function berechneLeistung() {
     `;
 }
 
+const formelRechner = {
+    pythagorasC: {
+        text: "c = √(a² + b²)",
+        output: "Hypotenuse c",
+        unit: "m",
+        inputs: ["a", "b"],
+        calc: ({ a, b }) => Math.sqrt(a * a + b * b)
+    },
+    pythagorasA: {
+        text: "a = √(c² - b²)",
+        output: "Kathete a",
+        unit: "m",
+        inputs: ["c", "b"],
+        calc: ({ c, b }) => Math.sqrt(c * c - b * b)
+    },
+    kraft: {
+        text: "F = m · a",
+        output: "Kraft F",
+        unit: "N",
+        inputs: ["m", "a"],
+        calc: ({ m, a }) => m * a
+    },
+    arbeitMechanisch: {
+        text: "W = F · s",
+        output: "Arbeit W",
+        unit: "J",
+        inputs: ["F", "s"],
+        calc: ({ F, s }) => F * s
+    },
+    leistungMechanisch: {
+        text: "P = W / t",
+        output: "Leistung P",
+        unit: "W",
+        inputs: ["W", "t"],
+        calc: ({ W, t }) => W / t
+    },
+    drehmoment: {
+        text: "M = F · r",
+        output: "Drehmoment M",
+        unit: "Nm",
+        inputs: ["F", "r"],
+        calc: ({ F, r }) => F * r
+    },
+    wirkungsgrad: {
+        text: "η = Pab / Pzu",
+        output: "Wirkungsgrad η",
+        unit: "%",
+        inputs: ["Pab", "Pzu"],
+        calc: ({ Pab, Pzu }) => (Pab / Pzu) * 100
+    },
+    waermemenge: {
+        text: "Q = m · c · Δθ",
+        output: "Wärmemenge Q",
+        unit: "J",
+        inputs: ["m", "c", "dT"],
+        calc: ({ m, c, dT }) => m * c * dT
+    },
+    celsiusKelvin: {
+        text: "T = θ + 273,15",
+        output: "Temperatur T",
+        unit: "K",
+        inputs: ["theta"],
+        calc: ({ theta }) => theta + 273.15
+    },
+    kelvinCelsius: {
+        text: "θ = T - 273,15",
+        output: "Temperatur θ",
+        unit: "°C",
+        inputs: ["T"],
+        calc: ({ T }) => T - 273.15
+    },
+    ohmI: {
+        text: "I = U / R",
+        output: "Strom I",
+        unit: "A",
+        inputs: ["U", "R"],
+        calc: ({ U, R }) => U / R
+    },
+    ohmU: {
+        text: "U = R · I",
+        output: "Spannung U",
+        unit: "V",
+        inputs: ["R", "I"],
+        calc: ({ R, I }) => R * I
+    },
+    ohmR: {
+        text: "R = U / I",
+        output: "Widerstand R",
+        unit: "Ω",
+        inputs: ["U", "I"],
+        calc: ({ U, I }) => U / I
+    },
+    leistungP: {
+        text: "P = U · I",
+        output: "Leistung P",
+        unit: "W",
+        inputs: ["U", "I"],
+        calc: ({ U, I }) => U * I
+    },
+    widerstandLeiter: {
+        text: "R = ρ · l / A",
+        output: "Leiterwiderstand R",
+        unit: "Ω",
+        inputs: ["rho", "l", "A"],
+        calc: ({ rho, l, A }) => (rho * l) / A
+    },
+    stromdichte: {
+        text: "J = I / A",
+        output: "Stromdichte J",
+        unit: "A/mm²",
+        inputs: ["I", "A"],
+        calc: ({ I, A }) => I / A
+    },
+    widerstandReihe: {
+        text: "Rges = R1 + R2 + R3",
+        output: "Gesamtwiderstand Rges",
+        unit: "Ω",
+        inputs: ["R1", "R2", "R3"],
+        calc: ({ R1, R2, R3 }) => R1 + R2 + R3
+    },
+    widerstandParallel: {
+        text: "Rges = 1 / (1/R1 + 1/R2)",
+        output: "Gesamtwiderstand Rges",
+        unit: "Ω",
+        inputs: ["R1", "R2"],
+        calc: ({ R1, R2 }) => 1 / ((1 / R1) + (1 / R2))
+    },
+    spannungsteiler: {
+        text: "U2 = U · R2 / (R1 + R2)",
+        output: "Teilspannung U2",
+        unit: "V",
+        inputs: ["U", "R1", "R2"],
+        calc: ({ U, R1, R2 }) => (U * R2) / (R1 + R2)
+    },
+    elektrischeArbeit: {
+        text: "W = P · t",
+        output: "Elektrische Arbeit W",
+        unit: "Wh",
+        inputs: ["P", "t"],
+        calc: ({ P, t }) => P * t
+    },
+    arbeitskosten: {
+        text: "K = W · Preis",
+        output: "Kosten K",
+        unit: "CHF",
+        inputs: ["W", "Preis"],
+        calc: ({ W, Preis }) => W * Preis
+    },
+    feldstaerke: {
+        text: "E = F / Q",
+        output: "Elektrische Feldstärke E",
+        unit: "N/C",
+        inputs: ["F", "Q"],
+        calc: ({ F, Q }) => F / Q
+    },
+    kapazitaet: {
+        text: "C = Q / U",
+        output: "Kapazität C",
+        unit: "F",
+        inputs: ["Q", "U"],
+        calc: ({ Q, U }) => Q / U
+    },
+    kondensatorEnergie: {
+        text: "W = 1/2 · C · U²",
+        output: "Energie W",
+        unit: "J",
+        inputs: ["C", "U"],
+        calc: ({ C, U }) => 0.5 * C * U * U
+    },
+    rcTau: {
+        text: "τ = R · C",
+        output: "Zeitkonstante τ",
+        unit: "s",
+        inputs: ["R", "C"],
+        calc: ({ R, C }) => R * C
+    },
+    magnetFluss: {
+        text: "Φ = B · A",
+        output: "Magnetischer Fluss Φ",
+        unit: "Wb",
+        inputs: ["B", "A"],
+        calc: ({ B, A }) => B * A
+    },
+    induktion: {
+        text: "U = N · ΔΦ / Δt",
+        output: "Induktionsspannung U",
+        unit: "V",
+        inputs: ["N", "dPhi", "dt"],
+        calc: ({ N, dPhi, dt }) => (N * dPhi) / dt
+    },
+    wechselstromScheitel: {
+        text: "Û = Ueff · √2",
+        output: "Scheitelwert Û",
+        unit: "V",
+        inputs: ["Ueff"],
+        calc: ({ Ueff }) => Ueff * Math.sqrt(2)
+    },
+    wechselstromEffektiv: {
+        text: "Ueff = Û / √2",
+        output: "Effektivwert Ueff",
+        unit: "V",
+        inputs: ["Umax"],
+        calc: ({ Umax }) => Umax / Math.sqrt(2)
+    },
+    frequenzPeriode: {
+        text: "f = 1 / T",
+        output: "Frequenz f",
+        unit: "Hz",
+        inputs: ["T"],
+        calc: ({ T }) => 1 / T
+    },
+    induktiverBlindwiderstand: {
+        text: "XL = 2 · π · f · L",
+        output: "Blindwiderstand XL",
+        unit: "Ω",
+        inputs: ["f", "L"],
+        calc: ({ f, L }) => 2 * Math.PI * f * L
+    },
+    kapazitiverBlindwiderstand: {
+        text: "XC = 1 / (2 · π · f · C)",
+        output: "Blindwiderstand XC",
+        unit: "Ω",
+        inputs: ["f", "C"],
+        calc: ({ f, C }) => 1 / (2 * Math.PI * f * C)
+    },
+    drehstromLeistung: {
+        text: "P = √3 · U · I · cos φ",
+        output: "Drehstromleistung P",
+        unit: "W",
+        inputs: ["U", "I", "cosPhi"],
+        calc: ({ U, I, cosPhi }) => Math.sqrt(3) * U * I * cosPhi
+    },
+    trafoSpannung: {
+        text: "U1 / U2 = N1 / N2",
+        output: "Ausgangsspannung U2",
+        unit: "V",
+        inputs: ["U1", "N1", "N2"],
+        calc: ({ U1, N1, N2 }) => (U1 * N2) / N1
+    },
+    trafoStrom: {
+        text: "I1 / I2 = N2 / N1",
+        output: "Ausgangsstrom I2",
+        unit: "A",
+        inputs: ["I1", "N1", "N2"],
+        calc: ({ I1, N1, N2 }) => (I1 * N1) / N2
+    }
+};
+
+function initialisiereFormelRechner() {
+    const bereiche = document.querySelectorAll("[data-formel]");
+
+    bereiche.forEach((bereich) => {
+        const key = bereich.dataset.formel;
+        const definition = formelRechner[key];
+        if (!definition) {
+            return;
+        }
+
+        const formel = bereich.querySelector(".formel");
+        if (formel) {
+            formel.innerHTML = `<span>Formel:</span> ${definition.text}`;
+        }
+
+        const rechnen = function () {
+            const werte = {};
+            definition.inputs.forEach((inputName) => {
+                const feld = bereich.querySelector(`[data-wert="${inputName}"]`);
+                werte[inputName] = feld ? Number(feld.value) : 0;
+            });
+
+            const resultat = definition.calc(werte);
+            const ausgabe = bereich.querySelector(".resultat");
+            if (!ausgabe) {
+                return;
+            }
+
+            if (!Number.isFinite(resultat)) {
+                ausgabe.innerHTML = "Die Eingaben führen zu keinem gültigen Ergebnis.";
+                return;
+            }
+
+            ausgabe.innerHTML = `${definition.output} = ${resultat.toFixed(3)} ${definition.unit}`;
+        };
+
+        bereich.querySelectorAll("input").forEach((input) => {
+            input.addEventListener("input", rechnen);
+        });
+
+        rechnen();
+    });
+}
+
 /* Automatisch beim Öffnen berechnen */
 window.onload = function () {
+    initialisiereFormelRechner();
+
     if (document.getElementById("resultatWiderstand")) {
         berechneWiderstand();
     }

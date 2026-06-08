@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Wärmelehre</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Wärmelehre</h2>
+        <p class="hinweis">Temperaturumrechnung und Wärmemenge.</p>
+
+        <div class="bereich" data-formel="celsiusKelvin">
+            <h3>Celsius nach Kelvin</h3>
+            <div class="formel"></div>
+            <label>Temperatur θ in °C:</label><input data-wert="theta" type="number" value="20">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="kelvinCelsius">
+            <h3>Kelvin nach Celsius</h3>
+            <div class="formel"></div>
+            <label>Temperatur T in K:</label><input data-wert="T" type="number" value="293.15">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="waermemenge">
+            <h3>Wärmemenge gesucht</h3>
+            <div class="formel"></div>
+            <label>Masse m in kg:</label><input data-wert="m" type="number" value="1">
+            <label>Spezifische Wärmekapazität c in J/(kg·K):</label><input data-wert="c" type="number" value="4180">
+            <label>Temperaturdifferenz Δθ in K:</label><input data-wert="dT" type="number" value="10">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

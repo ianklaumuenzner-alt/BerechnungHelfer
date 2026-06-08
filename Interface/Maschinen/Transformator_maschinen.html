@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Transformator und Maschinen</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Transformator und Maschinen</h2>
+        <p class="hinweis">Grundrechnungen zum idealen Transformator.</p>
+
+        <div class="bereich" data-formel="trafoSpannung">
+            <h3>Ausgangsspannung gesucht</h3>
+            <div class="formel"></div>
+            <label>Eingangsspannung U1 in V:</label><input data-wert="U1" type="number" value="230">
+            <label>Windungszahl N1:</label><input data-wert="N1" type="number" value="500">
+            <label>Windungszahl N2:</label><input data-wert="N2" type="number" value="100">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="trafoStrom">
+            <h3>Ausgangsstrom gesucht</h3>
+            <div class="formel"></div>
+            <label>Eingangsstrom I1 in A:</label><input data-wert="I1" type="number" value="2">
+            <label>Windungszahl N1:</label><input data-wert="N1" type="number" value="500">
+            <label>Windungszahl N2:</label><input data-wert="N2" type="number" value="100">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

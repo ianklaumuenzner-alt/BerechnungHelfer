@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Mechanik</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Mechanik</h2>
+        <p class="hinweis">Grundformeln für Kräfte, Arbeit, Leistung, Drehmoment und Wirkungsgrad.</p>
+
+        <div class="bereich" data-formel="kraft">
+            <h3>Kraft gesucht</h3>
+            <div class="formel"></div>
+            <label>Masse m in kg:</label><input data-wert="m" type="number" value="10">
+            <label>Beschleunigung a in m/s²:</label><input data-wert="a" type="number" value="9.81">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="arbeitMechanisch">
+            <h3>Mechanische Arbeit gesucht</h3>
+            <div class="formel"></div>
+            <label>Kraft F in N:</label><input data-wert="F" type="number" value="100">
+            <label>Weg s in m:</label><input data-wert="s" type="number" value="2">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="leistungMechanisch">
+            <h3>Mechanische Leistung gesucht</h3>
+            <div class="formel"></div>
+            <label>Arbeit W in J:</label><input data-wert="W" type="number" value="200">
+            <label>Zeit t in s:</label><input data-wert="t" type="number" value="4">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="drehmoment">
+            <h3>Drehmoment gesucht</h3>
+            <div class="formel"></div>
+            <label>Kraft F in N:</label><input data-wert="F" type="number" value="50">
+            <label>Hebelarm r in m:</label><input data-wert="r" type="number" value="0.2">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="wirkungsgrad">
+            <h3>Wirkungsgrad gesucht</h3>
+            <div class="formel"></div>
+            <label>Abgegebene Leistung Pab in W:</label><input data-wert="Pab" type="number" value="850">
+            <label>Zugeführte Leistung Pzu in W:</label><input data-wert="Pzu" type="number" value="1000">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

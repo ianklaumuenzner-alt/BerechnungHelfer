@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematische Grundlagen</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Mathematische Grundlagen</h2>
+        <p class="hinweis">Wichtige Hilfsrechnungen aus dem Abschnitt mathematische Grundlagen.</p>
+
+        <div class="bereich" data-formel="pythagorasC">
+            <h3>Satz des Pythagoras: Hypotenuse gesucht</h3>
+            <div class="formel"></div>
+            <label>Kathete a:</label><input data-wert="a" type="number" value="3">
+            <label>Kathete b:</label><input data-wert="b" type="number" value="4">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="pythagorasA">
+            <h3>Satz des Pythagoras: Kathete gesucht</h3>
+            <div class="formel"></div>
+            <label>Hypotenuse c:</label><input data-wert="c" type="number" value="5">
+            <label>Kathete b:</label><input data-wert="b" type="number" value="4">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

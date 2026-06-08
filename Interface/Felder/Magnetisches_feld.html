@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Magnetisches Feld</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Magnetisches Feld</h2>
+        <p class="hinweis">Magnetischer Fluss und Induktion.</p>
+
+        <div class="bereich" data-formel="magnetFluss">
+            <h3>Magnetischer Fluss gesucht</h3>
+            <div class="formel"></div>
+            <label>Flussdichte B in T:</label><input data-wert="B" type="number" value="0.8">
+            <label>Fläche A in m²:</label><input data-wert="A" type="number" value="0.02">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="induktion">
+            <h3>Induktionsspannung gesucht</h3>
+            <div class="formel"></div>
+            <label>Windungszahl N:</label><input data-wert="N" type="number" value="100">
+            <label>Flussänderung ΔΦ in Wb:</label><input data-wert="dPhi" type="number" value="0.02">
+            <label>Zeitänderung Δt in s:</label><input data-wert="dt" type="number" value="0.1">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>

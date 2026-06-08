@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Elektrotechnische Grundlagen</title>
+    <link rel="stylesheet" href="../Styles_Interface.css">
+</head>
+<body>
+    <div class="karte">
+        <h2>Elektrotechnische Grundlagen</h2>
+        <p class="hinweis">Ohmsches Gesetz, elektrische Leistung, Leiterwiderstand und Stromdichte.</p>
+
+        <div class="bereich" data-formel="ohmI">
+            <h3>Strom gesucht</h3>
+            <div class="formel"></div>
+            <label>Spannung U in V:</label><input data-wert="U" type="number" value="24">
+            <label>Widerstand R in Ω:</label><input data-wert="R" type="number" value="10">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="ohmU">
+            <h3>Spannung gesucht</h3>
+            <div class="formel"></div>
+            <label>Widerstand R in Ω:</label><input data-wert="R" type="number" value="10">
+            <label>Strom I in A:</label><input data-wert="I" type="number" value="2.4">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="ohmR">
+            <h3>Widerstand gesucht</h3>
+            <div class="formel"></div>
+            <label>Spannung U in V:</label><input data-wert="U" type="number" value="24">
+            <label>Strom I in A:</label><input data-wert="I" type="number" value="2.4">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="leistungP">
+            <h3>Elektrische Leistung gesucht</h3>
+            <div class="formel"></div>
+            <label>Spannung U in V:</label><input data-wert="U" type="number" value="230">
+            <label>Strom I in A:</label><input data-wert="I" type="number" value="5">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="widerstandLeiter">
+            <h3>Leiterwiderstand gesucht</h3>
+            <div class="formel"></div>
+            <label>Spezifischer Widerstand ρ in Ω·mm²/m:</label><input data-wert="rho" type="number" value="0.0178">
+            <label>Leiterlänge l in m:</label><input data-wert="l" type="number" value="10">
+            <label>Leiterquerschnitt A in mm²:</label><input data-wert="A" type="number" value="1.5">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="stromdichte">
+            <h3>Stromdichte gesucht</h3>
+            <div class="formel"></div>
+            <label>Strom I in A:</label><input data-wert="I" type="number" value="10">
+            <label>Querschnitt A in mm²:</label><input data-wert="A" type="number" value="2.5">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="widerstandReihe">
+            <h3>Reihenschaltung von Widerständen</h3>
+            <div class="formel"></div>
+            <label>Widerstand R1 in Ω:</label><input data-wert="R1" type="number" value="100">
+            <label>Widerstand R2 in Ω:</label><input data-wert="R2" type="number" value="220">
+            <label>Widerstand R3 in Ω:</label><input data-wert="R3" type="number" value="330">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="widerstandParallel">
+            <h3>Parallelschaltung von zwei Widerständen</h3>
+            <div class="formel"></div>
+            <label>Widerstand R1 in Ω:</label><input data-wert="R1" type="number" value="100">
+            <label>Widerstand R2 in Ω:</label><input data-wert="R2" type="number" value="220">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="spannungsteiler">
+            <h3>Spannungsteiler</h3>
+            <div class="formel"></div>
+            <label>Gesamtspannung U in V:</label><input data-wert="U" type="number" value="24">
+            <label>Widerstand R1 in Ω:</label><input data-wert="R1" type="number" value="1000">
+            <label>Widerstand R2 in Ω:</label><input data-wert="R2" type="number" value="1000">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="elektrischeArbeit">
+            <h3>Elektrische Arbeit gesucht</h3>
+            <div class="formel"></div>
+            <label>Leistung P in W:</label><input data-wert="P" type="number" value="1000">
+            <label>Zeit t in h:</label><input data-wert="t" type="number" value="2">
+            <div class="resultat"></div>
+        </div>
+
+        <div class="bereich" data-formel="arbeitskosten">
+            <h3>Kosten der elektrischen Arbeit</h3>
+            <div class="formel"></div>
+            <label>Arbeit W in kWh:</label><input data-wert="W" type="number" value="2">
+            <label>Preis in CHF/kWh:</label><input data-wert="Preis" type="number" value="0.30">
+            <div class="resultat"></div>
+        </div>
+    </div>
+    <script src="../Interface.js"></script>
+</body>
+</html>
